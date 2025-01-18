@@ -45,6 +45,7 @@
 
       // Calculate the required numbers
       const seedPlants = Math.ceil(carrotsNeeded / 2);
+      const totalYieldFromSeeds = seedPlants * 3;
       const totalCarrots = carrotsNeeded + seedPlants;
       const keepCarrots = carrotsNeeded;
 
@@ -52,7 +53,9 @@
       document.getElementById('result').innerHTML = `
         <p>Gather a total of <strong>${totalCarrots}</strong> carrots.</p>
         <p>Plant <strong>${seedPlants}</strong> carrot seed-plants.</p>
-        <p>Keep <strong>${keepCarrots}</strong> carrots.</p>
+        <p>Keep <strong>${keepCarrots}</strong> carrots for cooking.</p>
+	<p>-----</p>
+        <p><em>Don't forget to plant the <strong>${totalYieldFromSeeds}</strong> carrot seeds once the seed-plants are grown!</em></p>
       `;
     }
   </script>
