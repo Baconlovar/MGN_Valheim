@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valheim Carrot Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Valheim Carrot Calculator</h1>
+  <p>How many carrots do you need?</p>
+  <input type="number" id="carrots" placeholder="Number of carrots" />
+  <button onclick="calculate()">Calculate</button>
+  <div id="result"></div>
+
+  <script>
+    function calculate() {
+      const carrotsNeeded = parseInt(document.getElementById('carrots').value);
+      
+      if (isNaN(carrotsNeeded) || carrotsNeeded < 1) {
+        document.getElementById('result').innerHTML = "<p>Please enter a valid number of carrots.</p>";
+        return;
+      }
+
+      // Calculate the required numbers
+      const seedPlants = Math.ceil(carrotsNeeded / 2);
+      const totalCarrots = carrotsNeeded + seedPlants;
+      const keepCarrots = carrotsNeeded;
+
+      // Display results
+      document.getElementById('result').innerHTML = `
+        <p>Gather a total of <strong>${totalCarrots}</strong> carrots.</p>
+        <p>Plant <strong>${seedPlants}</strong> carrot seed-plants.</p>
+        <p>Keep <strong>${keepCarrots}</strong> carrots.</p>
+      `;
+    }
+  </script>
+</body>
+</html>
